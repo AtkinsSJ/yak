@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=800, initial-scale=1, maximum-scale=1">
+	<title>Charity Game Jam - Make games. Spread the love!</title>
+	<meta name="description" content="Charity Game Jam - Make games. Spread the love!">
+<style type='text/css'>
+html { overflow:hidden}
+body 
+{ 
+	padding:0; margin:0;
+}
+
+</style>
+<script src="js/swfobject.js"></script>
+	<script>
+		var flashvars = {
+		};
+		var params = {
+			menu: "false",
+			scale: "noScale",
+			allowFullscreen: "true",
+			allowScriptAccess: "always",
+			bgcolor: "",
+			wmode: "direct" // can cause issues with FP settings & webcam
+		};
+		var attributes = {
+			id:"yak"
+		};
+		swfobject.embedSWF(
+			"yak.swf", 
+			"altContent", "512", "448", "10.0.0", 
+			"expressInstall.swf", 
+			flashvars, params, attributes);
+	</script>
+</head>
+<body>
+
+<!-- 
+Put your 512x448 game here! Good luck and have fun!
+-->
+<div id="altContent">
+		<h1>yak</h1>
+		<p><a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash player</a></p>
+	</div>
+
+</body>
+</html>
