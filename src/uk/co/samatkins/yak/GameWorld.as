@@ -50,6 +50,8 @@ package uk.co.samatkins.yak
 		
 		private var gameOver:Boolean = false;
 		
+		private var paused:Boolean = false;
+		
 		public function GameWorld() 
 		{
 			super();
@@ -108,6 +110,7 @@ package uk.co.samatkins.yak
 		
 		override public function update():void 
 		{
+			if (paused) { return; }
 			super.update();
 			
 			// Make camera follow the player
@@ -214,10 +217,24 @@ package uk.co.samatkins.yak
 			addGraphic(black, -9999999);
 			var fadeTween:VarTween = new VarTween(function():void {
 				// Go to game over world
-				FP.world = new GameOverWorld(score);
+				(FP.engine as Main).kongregate.stats.submit("Highscore", score);
+				FP.world = new MenuWorld;
+				//FP.world = new GameOverWorld(score);
 			});
 			addTween(fadeTween);
 			fadeTween.tween(black, "alpha", 1, 2);
+		}
+		
+		override public function focusLost():void 
+		{
+			super.focusLost();
+			paused = true;
+		}
+		
+		override public function focusGained():void 
+		{
+			super.focusGained();
+			paused = false;
 		}
 		
 	}

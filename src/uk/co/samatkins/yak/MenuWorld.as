@@ -34,11 +34,11 @@ package uk.co.samatkins.yak
 			text = new Text("PRESS SPACE TO START", 0, 0, { align: "center", width: FP.width } );
 			addGraphic(text, 0, 0, FP.height - 40);
 			
-			addGraphic(new Text("Or H for highscores", 0, 0, {
-				align: "center",
-				size: 8,
-				width: FP.width
-			}), 0, 0, FP.height - 20);
+			//addGraphic(new Text("Or H for highscores", 0, 0, {
+				//align: "center",
+				//size: 8,
+				//width: FP.width
+			//}), 0, 0, FP.height - 20);
 			
 			addGraphic(new Text("v" + Version.Major + "." + Version.Build, 0, 0, {
 				align: "left",
@@ -54,7 +54,7 @@ package uk.co.samatkins.yak
 			if (Input.pressed(Key.SPACE)) {
 				FP.world = new InstructionsWorld();
 			} else if (Input.pressed(Key.H)) {
-				FP.world = new HighScoresWorld();
+				//FP.world = new HighScoresWorld();
 			}
 			
 			if (Input.mousePressed) {
