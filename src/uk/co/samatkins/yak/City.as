@@ -86,7 +86,7 @@ package uk.co.samatkins.yak
 			sb.add(1, 2); // offices
 			sb.add(2, 1); // industry
 			//sb.add(3, 1); // towers
-			//sb.add(4, 1); // parks
+			sb.add(4, 1); // parks
 			
 			for (var bx:int = 0; bx < blocksAcross; bx++) {
 				for (var by:int = 0; by < blocksDown; by++) {
