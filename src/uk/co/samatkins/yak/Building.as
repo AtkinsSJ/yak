@@ -30,30 +30,36 @@ package uk.co.samatkins.yak
 				{
 					w: 1,
 					h: 1,
-					tiles: [0]
+					tiles: [0],
+					solid: true
 				},{
 					w: 1,
 					h: 1,
-					tiles: [1]
+					tiles: [1],
+					solid: true
 				},{
 					w: 1,
 					h: 1,
-					tiles: [4]
+					tiles: [16],
+					solid: true
 				},{
 					w: 1,
 					h: 1,
-					tiles: [5]
+					tiles: [17],
+					solid: true
 				},{
 					w: 2,
 					h: 2,
-					tiles: [8,9,12,13]
+					tiles: [32,33,48,49],
+					solid: true
 				}
 			],
 			"offices": [
 				{
 					w: 2,
 					h: 2,
-					tiles: [2, 3, 6, 7]
+					tiles: [2, 3, 18, 19],
+					solid: true
 				}
 			],
 			"industry": [
@@ -61,15 +67,29 @@ package uk.co.samatkins.yak
 					w: 4,
 					h: 4,
 					tiles: [
-						16, 17, 18, 19,
-						20, 21, 22, 23,
-						24, 25, 26, 27,
-						28, 29, 30, 31
-					]
+						64, 65, 66, 67,
+						80, 81, 82, 83,
+						96, 97, 98, 99,
+						112, 113, 114, 115
+					],
+					solid: true
 				}
-			]/*,
-			"towers",
-			"parks"*/
+			],
+			/*"towers",*/
+			"parks": [
+				{
+					w: 1,
+					h: 1,
+					tiles: [4],
+					solid: false
+				},
+				{
+					w: 1,
+					h: 1,
+					tiles: [5],
+					solid: false
+				}
+			]
 		};
 		
 		public function Building(city:City, blockType:String, x:Number=0, y:Number=0) 
@@ -94,36 +114,6 @@ package uk.co.samatkins.yak
 					putBuilding(x1, y1, BUILDINGS[blockType][Math.floor(Math.random() * BUILDINGS[blockType].length)]);
 				}
 			}
-			
-			 //2x2
-			//for (x1 = 0; x1 < City.BLOCK_SIZE-2; x1++) {
-				//for (y1 = 0; y1 < City.BLOCK_SIZE-2; y1++) {
-					//
-					//if (Math.random() < 0.2) {
-						//if ( !grid.getTile(x1, y1) && !grid.getTile(x1 + 1, y1)
-							//&& !grid.getTile(x1, y1 + 1) && !grid.getTile(x1 + 1, y1 + 1) ) {
-							//
-							//var building:int = Math.floor(Math.random() * TWO_BUILDINGS.length);
-							//tiles.setTile(x1, y1, TWO_BUILDINGS[building][0]);
-							//tiles.setTile(x1+1, y1, TWO_BUILDINGS[building][1]);
-							//tiles.setTile(x1, y1+1, TWO_BUILDINGS[building][2]);
-							//tiles.setTile(x1 + 1, y1 + 1, TWO_BUILDINGS[building][3]);
-							//
-							//grid.setRect(x1, y1, 2, 2, true);
-						//}
-					//}
-				//}
-			//}
-			//
-			 //1x1
-			//for (x1 = 0; x1 < City.BLOCK_SIZE-1; x1++) {
-				//for (y1 = 0; y1 < City.BLOCK_SIZE-1; y1++) {
-					//if (!grid.getTile(x1, y1) && Math.random() < 0.65) {
-						//tiles.setTile(x1, y1, ONE_BUILDINGS[Math.floor(Math.random() * ONE_BUILDINGS.length)]);
-						//grid.setTile(x1, y1, true);
-					//}
-				//}
-			//}
 			
 			graphic = tiles;
 			mask = grid;
@@ -158,14 +148,14 @@ package uk.co.samatkins.yak
 			var x:int, y:int;
 			for (x = left; x < left + building.w; x++) {
 				for (y = top; y < top + building.h; y++) {
-					if ( grid.getTile(x, y) ) {
+					if ( tiles.getTile(x, y) != 0 ) {
 						return false;
 					}
 				}
 			}
 			
 			// BUILD IT! :D
-			grid.setRect(left, top, building.w, building.h, true);
+			grid.setRect(left, top, building.w, building.h, building.solid);
 			for (x = 0; x < building.w; x++) {
 				for (y = 0; y < building.h; y++) {
 					tiles.setTile(x + left, y + top, building.tiles[y * building.w + x]);
