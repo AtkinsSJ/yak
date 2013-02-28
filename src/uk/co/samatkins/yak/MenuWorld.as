@@ -39,6 +39,12 @@ package uk.co.samatkins.yak
 				size: 8,
 				width: FP.width
 			}), 0, 0, FP.height - 20);
+			
+			addGraphic(new Text("v" + Version.Major + "." + Version.Build, 0, 0, {
+				align: "left",
+				color: 0x888888,
+				size: 8
+			}), 0, 2, FP.height - 10);
 		}
 		
 		override public function update():void 
