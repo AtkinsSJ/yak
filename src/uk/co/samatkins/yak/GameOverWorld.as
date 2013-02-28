@@ -101,6 +101,8 @@ package uk.co.samatkins.yak
 			urlLoader.addEventListener(IOErrorEvent.IO_ERROR, trace);
 			urlLoader.addEventListener(Event.COMPLETE, trace);
 			urlLoader.load(urlRequest);
+			
+			(FP.engine as Main).kongregate.stats.submit("Highscore", score);
 		}
 		
 	}
