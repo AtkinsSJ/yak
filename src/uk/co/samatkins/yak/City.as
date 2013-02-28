@@ -84,9 +84,9 @@ package uk.co.samatkins.yak
 			var sb:ShuffleBag = new ShuffleBag();
 			sb.add(0, 5); // houses
 			sb.add(1, 2); // offices
-			sb.add(2, 1); // towers
-			sb.add(3, 1); // parks
-			sb.add(4, 1); // nothing
+			sb.add(2, 1); // industry
+			//sb.add(3, 1); // towers
+			//sb.add(4, 1); // parks
 			
 			for (var bx:int = 0; bx < blocksAcross; bx++) {
 				for (var by:int = 0; by < blocksDown; by++) {
@@ -94,7 +94,7 @@ package uk.co.samatkins.yak
 					y1 = (by * BLOCK_SIZE) + 1;
 					
 					// What kind of city block?
-					gameWorld.add(new Building(this, x1 * TILE_SIZE, y1 * TILE_SIZE, blockTypes[sb.next()]));
+					gameWorld.add(new Building(this, blockTypes[sb.next()], x1 * TILE_SIZE, y1 * TILE_SIZE));
 					//switch (sb.next()) {
 						//case 1: // houses
 							//gameWorld.add(new Building(this, x1 * TILE_SIZE, y1 * TILE_SIZE));
