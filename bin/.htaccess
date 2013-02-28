@@ -1,0 +1,6 @@
+Order Allow,Deny
+Allow from All
+
+<Files "config.ini">
+	Deny from All
+</Files>

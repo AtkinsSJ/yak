@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=800, initial-scale=1, maximum-scale=1">
+	<title>Charity Game Jam - Make games. Spread the love!</title>
+	<meta name="description" content="Charity Game Jam - Make games. Spread the love!">
+<style type='text/css'>
+body 
+{ 
+	padding:0; margin:0; background:white; 
+	background:#FDC689; background-image:url(bg.jpg); 
+	background-position:top center;
+}
+#gameframe
+{ 
+	margin:0; padding:0; border:0; 
+	overflow:hidden; position:absolute; 
+	width:512px; height:448px; top:50%; left:50%; 
+	margin-left:-288px; margin-top:-318px; 
+}
+#overlay 
+{ 
+	position:absolute; top:50%; left:50%; 
+	margin-left:-320px; margin-top:-350px; 
+	width:640px; height:675px; 
+	background-image:url(funkytron_overlay.png); 
+	overflow:hidden; background-repeat:no-repeat; 
+	pointer-events:none;
+}
+</style>
+<!-- 
+The pointer events are buggy on IE browsers (huge surprise)
+so we put the game on TOP of the nice TV scanline effect
+-->
+<!--[if IE]>
+<style type='text/css'>
+#gameframe { z-index:999; }
+</style>
+<![endif]-->
+</head>
+<body>
+
+<iframe id='gameframe' src='game.html'></iframe>
+<div id='overlay'></div>
+
+</body>
+</html>
