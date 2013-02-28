@@ -217,9 +217,7 @@ package uk.co.samatkins.yak
 			addGraphic(black, -9999999);
 			var fadeTween:VarTween = new VarTween(function():void {
 				// Go to game over world
-				(FP.engine as Main).kongregate.stats.submit("Highscore", score);
-				FP.world = new MenuWorld;
-				//FP.world = new GameOverWorld(score);
+				FP.world = new GameOverWorld(score);
 			});
 			addTween(fadeTween);
 			fadeTween.tween(black, "alpha", 1, 2);
