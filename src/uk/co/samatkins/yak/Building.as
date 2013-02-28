@@ -60,6 +60,12 @@ package uk.co.samatkins.yak
 					h: 2,
 					tiles: [2, 3, 18, 19],
 					solid: true
+				},
+				{
+					w: 2,
+					h: 2,
+					tiles: [34, 35, 50, 51],
+					solid: true
 				}
 			],
 			"industry": [
@@ -88,6 +94,18 @@ package uk.co.samatkins.yak
 					h: 1,
 					tiles: [5],
 					solid: false
+				},
+				{
+					w: 1,
+					h: 1,
+					tiles: [20],
+					solid: false
+				},
+				{
+					w: 1,
+					h: 1,
+					tiles: [21],
+					solid: false
 				}
 			]
 		};
@@ -111,7 +129,9 @@ package uk.co.samatkins.yak
 			
 			for (x1 = 0; x1 < City.BLOCK_SIZE-1; x1++) {
 				for (y1 = 0; y1 < City.BLOCK_SIZE-1; y1++) {
-					putBuilding(x1, y1, BUILDINGS[blockType][Math.floor(Math.random() * BUILDINGS[blockType].length)]);
+					if (Math.random() < 0.7) {
+						putBuilding(x1, y1, BUILDINGS[blockType][Math.floor(Math.random() * BUILDINGS[blockType].length)]);
+					}
 				}
 			}
 			
